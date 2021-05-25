@@ -58,5 +58,5 @@ var Carousel = /** @class */ (function (_super) {
       </div>);
     };
     return Carousel;
-}(react_1["default"].Component));
+});
 exports["default"] = Carousel;

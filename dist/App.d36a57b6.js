@@ -32696,79 +32696,118 @@ module.exports.ANIMALS = require("./animals");
 },{"./impl":"../node_modules/@frontendmasters/pet/impl.js","./animals":"../node_modules/@frontendmasters/pet/animals.js"}],"Carousel.js":[function(require,module,exports) {
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
+var __extends = this && this.__extends || function () {
+  var extendStatics = function (d, b) {
+    extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    };
 
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-class Carousel extends _react.default.Component {
-  state = {
-    photos: [],
-    active: 0
+    return extendStatics(d, b);
   };
 
-  static getDerivedStateFromProps({
-    media
-  }) {
-    let photos = ["http://placecorgi.com/600/600"];
+  return function (d, b) {
+    extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
+exports.__esModule = true;
+
+var react_1 = require("react");
+
+var Carousel =
+/** @class */
+function (_super) {
+  __extends(Carousel, _super);
+
+  function Carousel() {
+    var _this = _super !== null && _super.apply(this, arguments) || this;
+
+    _this.state = {
+      photos: [],
+      active: 0
+    };
+
+    _this.handleIndexClick = function (event) {
+      if (!(event.target instanceof HTMLElement)) {
+        return;
+      }
+
+      if (event.target.dataset.index) {
+        _this.setState({
+          active: +event.target.dataset.index
+        });
+      }
+    };
+
+    return _this;
+  }
+
+  Carousel.getDerivedStateFromProps = function (_a) {
+    var media = _a.media;
+    var photos = ["http://placecorgi.com/600/600"];
 
     if (media.length) {
-      photos = media.map(({
-        large
-      }) => large);
+      photos = media.map(function (_a) {
+        var large = _a.large;
+        return large;
+      });
     }
 
     return {
-      photos
+      photos: photos
     };
-  }
-
-  handleIndexClick = event => {
-    this.setState({
-      active: +event.target.dataset.index
-    });
   };
 
-  render() {
-    const {
-      photos,
-      active
-    } = this.state;
+  Carousel.prototype.render = function () {
+    var _this = this;
+
+    var _a = this.state,
+        photos = _a.photos,
+        active = _a.active;
     return (
       /*#__PURE__*/
-      _react.default.createElement("div", {
+      React.createElement("div", {
         className: "carousel"
       },
       /*#__PURE__*/
-      _react.default.createElement("img", {
+      React.createElement("img", {
         src: photos[active],
         alt: "animal"
       }),
       /*#__PURE__*/
-      _react.default.createElement("div", {
+      React.createElement("div", {
         className: "carousel-smaller"
-      }, photos.map((photo, index) =>
-      /*#__PURE__*/
-      // eslint-disable-next-line
-      _react.default.createElement("img", {
-        key: photo,
-        onClick: this.handleIndexClick,
-        "data-index": index,
-        src: photo,
-        className: index === active ? "active" : "",
-        alt: "animal thumbnail"
-      }))))
+      }, photos.map(function (photo, index) {
+        return (
+          /*#__PURE__*/
+          // eslint-disable-next-line
+          React.createElement("img", {
+            key: photo,
+            onClick: _this.handleIndexClick,
+            "data-index": index,
+            src: photo,
+            className: index === active ? "active" : "",
+            alt: "animal thumbnail"
+          })
+        );
+      })))
     );
-  }
+  };
 
-}
+  return Carousel;
+};
 
-var _default = Carousel;
-exports.default = _default;
+exports["default"] = Carousel;
 },{"react":"../node_modules/react/index.js"}],"Modal.js":[function(require,module,exports) {
 "use strict";
 
@@ -33367,7 +33406,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64543" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60861" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
