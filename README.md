@@ -1,3 +1,3 @@
 ## Adopt me 
 
-You can select a pet to adopt from the categories. 
+This app lets you adopt a pet. You can select from different categories. 
